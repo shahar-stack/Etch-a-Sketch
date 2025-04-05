@@ -1,0 +1,18 @@
+html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95vw;
+    height: 95vh;
+  }
+
+  #square {
+    flex: 0 0 6.25%;
+    /* border: 5px dotted black;   */
+  }
