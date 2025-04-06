@@ -51,7 +51,7 @@
      height: 80vh;
  }
 
- #square {
-     flex: 0 0 6.25%;
+ .square {
+     flex: 0 0 6.25%; /* default is 16x16, (100% / 16 = 6.25% of the container's space) */
      border: 1px dashed black;
  }
