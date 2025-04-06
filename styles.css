@@ -12,37 +12,51 @@
 
  body {
      height: 100vh;
+     width: 100vw;
      font-family: Montserrat, "Times New Roman", sans-serif;
      margin: 0;
+     padding: 0;
      background-color: #AFE4DE;
 
-     display: flex;
-     flex-direction: column;
-     align-items: center;
- }
-
- h1 {
-    margin-bottom: 0;
- }
-
- .gridContainer {
      display: flex;
      flex-direction: column;
      align-items: center;
      gap: 20px;
  }
 
- #changeButton {
-     margin-top: 20px;
-     font-size: 20px;
-     color: white;
-     background-color: #c00000;
-     padding: 5px 10px;
-     border-radius: 20px;
-     border: 2px solid black;
+ header {
+    margin-top: 20px;
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
  }
- 
- #changeButton:hover {
+
+ .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80vh; /* match grid size, so buttons container aligns */
+    gap: 20px;
+ }
+
+ .buttonsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+ }
+
+ .buttonsContainer > * {
+    font-size: 20px;
+    color: white;
+    background-color: #c00000;
+    padding: 5px 10px;
+    border-radius: 20px;
+    border: 2px solid black;
+ }
+
+ .buttonsContainer > *:hover {
     background-color: #990000;
  }
 
