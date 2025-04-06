@@ -7,7 +7,7 @@ for (let i = 0; i < 16; i++) {
         squareDiv = document.createElement("div");
         squareDiv.className = "square";
         grid.appendChild(squareDiv);
-        squareDiv.addEventListener("mousemove", colorSquare);
+        squareDiv.addEventListener("mouseenter", colorSquare);
     }
 }
 
@@ -25,13 +25,22 @@ function createGrid(userInput) {
             squareDiv = document.createElement("div");
             squareDiv.className = "square";
             grid.appendChild(squareDiv);
-            squareDiv.addEventListener("mousemove", colorSquare);
+            squareDiv.addEventListener("mouseenter", colorSquare);
         }
     }
 }
 
 function colorSquare(event) {
-    event.target.style.backgroundColor = "grey";
+    event.target.style.backgroundColor = "black";
+    event.target.style.opacity = (parseFloat(event.target.style.opacity) || 0) + 0.1;
+}
+
+function getRandomRGB () {
+    const R = Math.floor(Math.random()*256);
+    const G = Math.floor(Math.random()*256);
+    const B = Math.floor(Math.random()*256);
+
+    return `rgb(${R}, ${G}, ${B})`;
 }
 
 
