@@ -7,7 +7,9 @@ for (let i = 0; i < 16; i++) {
         squareDiv = document.createElement("div");
         squareDiv.className = "square";
         grid.appendChild(squareDiv);
-        squareDiv.addEventListener("mouseenter", colorSquare);
+        squareDiv.addEventListener("mouseenter", colorSquareDEFAULT);
+        squareDiv.addEventListener("mouseenter", addSquareOpacity);
+        // squareDiv.addEventListener("mouseenter", colorSquareCHOICE);
     }
 }
 
@@ -25,15 +27,17 @@ function createGrid(userInput) {
             squareDiv = document.createElement("div");
             squareDiv.className = "square";
             grid.appendChild(squareDiv);
-            squareDiv.addEventListener("mouseenter", colorSquare);
+            squareDiv.addEventListener("mouseenter", colorSquareDEFAULT);
+            squareDiv.addEventListener("mouseenter", addSquareOpacity);
+            // squareDiv.addEventListener("mouseenter", colorSquareCHOICE);
         }
     }
 }
 
-function colorSquare(event) {
+function colorSquareDEFAULT(event) {
     event.target.style.backgroundColor = getRandomRGB();
-    event.target.style.opacity = (parseFloat(event.target.style.opacity) || 0) + 0.1;
 }
+
 
 function getRandomRGB() {
     const R = Math.floor(Math.random() * 256);
@@ -43,6 +47,18 @@ function getRandomRGB() {
     return `rgb(${R}, ${G}, ${B})`;
 }
 
+function addSquareOpacity (event) {
+
+    if (isToggleOn)
+        event.target.style.opacity = (parseFloat(event.target.style.opacity) || 0) + 0.1;
+}
+
+function colorSquareCHOICE() {
+    //
+}
+
+
+// Change Grid Size:
 
 function isInputValid(userInput) {
     let isValid = false;
@@ -109,7 +125,7 @@ function isInputValid(userInput) {
     }
 }
 
-const changeButton = document.querySelector("#changeButton");
+const changeGridButton = document.querySelector("#changeGridButton");
 
 function changeButtonClick() {
     let userInput = prompt("Enter a positive number of squares per row/column (max 100):")
@@ -142,4 +158,26 @@ function changeButtonClick() {
     });
 }
 
-changeButton.addEventListener("click", changeButtonClick);
+changeGridButton.addEventListener("click", changeButtonClick);
+
+//
+
+// Toggle Opacity Strokes:
+
+const toggleOpacityButton = document.querySelector("#toggleOpacityButton");
+
+let isToggleOn = false;
+function opacityButtonClick() {
+    if (!isToggleOn) {
+        isToggleOn=true;
+        toggleOpacityButton.textContent = "Toggle Opacity Stroke Tool: ON";
+    }
+    else {
+        isToggleOn=false;
+        toggleOpacityButton.textContent = "Toggle Opacity Stroke Tool: OFF";
+    }
+    console.log(isToggleOn);
+    return isToggleOn;
+}
+
+toggleOpacityButton.addEventListener("click", opacityButtonClick);
