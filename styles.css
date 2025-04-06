@@ -1,18 +1,27 @@
-html {
+ html {
     box-sizing: border-box;
   }
   *, *:before, *:after {
     box-sizing: inherit;
   }
 
-  .container {
+  body {
+    height: 100vh; 
+  }
+
+  .gridContainer {
+    display: flex;
+    justify-content: center;
+  }
+
+  .grid {
     display: flex;
     flex-wrap: wrap;
-    width: 95vw;
-    height: 95vh;
+    width: 80vh;
+    height: 80vh;
   }
 
   #square {
     flex: 0 0 6.25%;
-    /* border: 5px dotted black;   */
+    border: 1px dashed black;  
   }
