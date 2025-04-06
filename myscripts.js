@@ -1,4 +1,4 @@
-const gridContainer = document.querySelector(".container");
+const grid = document.querySelector(".grid");
 let squareDiv;
 
 function createGrid() {
@@ -7,7 +7,7 @@ function createGrid() {
         for (let j = 0; j < 16; j++) {
             squareDiv = document.createElement("div");
             squareDiv.id = "square";
-            gridContainer.appendChild(squareDiv);
+            grid.appendChild(squareDiv);
             squareDiv.addEventListener("mousemove", colorSquare);
         }
     }
@@ -16,7 +16,7 @@ function createGrid() {
 
 function colorSquare(event) {
     // squareDiv.style.backgroundColor = "black";
-    event.target.style.backgroundColor = "black";
+    event.target.style.backgroundColor = "grey";
 }
 
 createGrid();
