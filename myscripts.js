@@ -67,13 +67,13 @@ function isInputValid(userInput) {
 
             if (userInput === null) {
                 alert("Cancelled - not changing grid size");
-                return;
+                return false;
             } else if (userInput.trim() === "") {
                 while (userInput.trim() === "") {
                     userInput = prompt("You didn't input any value - please input a number, or if you wish to cancel, hit 'Cancel'");
                     if (userInput === null) {
                         alert("Cancelled - not changing grid size");
-                        return;
+                        return false;
                     }
                 }
             }
@@ -85,13 +85,13 @@ function isInputValid(userInput) {
 
             if (userInput === null) {
                 alert("Cancelled - not changing grid size");
-                return;
+                return false;
             } else if (userInput.trim() === "") {
                 while (userInput.trim() === "") {
                     userInput = prompt("You didn't input any value - please input a number, or if you wish to cancel, hit 'Cancel'");
                     if (userInput === null) {
                         alert("Cancelled - not changing grid size");
-                        return;
+                        return false;
                     }
                 }
             }
@@ -103,13 +103,13 @@ function isInputValid(userInput) {
 
             if (userInput === null) {
                 alert("Cancelled - not changing grid size");
-                return;
+                return false;
             } else if (userInput.trim() === "") {
                 while (userInput.trim() === "") {
                     userInput = prompt("You didn't input any value - please input a number, or if you wish to cancel, hit 'Cancel'");
                     if (userInput === null) {
                         alert("Cancelled - not changing grid size");
-                        return;
+                        return false;
                     }
                 }
             }
@@ -119,9 +119,9 @@ function isInputValid(userInput) {
         }
         else {
             isValid = true;
-            break;
         }
     }
+    return true;
 }
 
 const changeGridButton = document.querySelector("#changeGridButton");
