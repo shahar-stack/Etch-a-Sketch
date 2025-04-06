@@ -36,7 +36,9 @@
     flex-direction: column;
     align-items: center;
     width: 80vh; /* match grid size, so buttons container aligns */
-    gap: 20px;
+    gap: 15px;
+    font-size: 20px;
+    font-weight: bold;
  }
 
  .buttonsContainer {
@@ -68,9 +70,11 @@
      background-color: white;
      border: 5px solid black;
      border-radius: 10px;
+
+     cursor: url(img/brush.png) 10 10, auto;
  }
 
  .square {
      flex: 0 0 6.25%; /* default is 16x16, (100% / 16 = 6.25% of the container's space) */
-     /* border: 1px dashed black; <---- this border is here to troubleshoot if the grid squares are created as expected */
+     border: 0.1px dashed black; /* <---- this border is here to troubleshoot if the grid squares are created as expected */
  }
