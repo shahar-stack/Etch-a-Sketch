@@ -35,7 +35,7 @@ function createGrid(userInput) {
 }
 
 function colorSquareDEFAULT(event) {
-    event.target.style.backgroundColor = getRandomRGB();
+    event.target.style.backgroundColor = "black";
 }
 
 
@@ -47,14 +47,13 @@ function getRandomRGB() {
     return `rgb(${R}, ${G}, ${B})`;
 }
 
-function addSquareOpacity (event) {
-
+function addSquareOpacity(event) {
     if (isToggleOn)
         event.target.style.opacity = (parseFloat(event.target.style.opacity) || 0) + 0.1;
 }
 
-function colorSquareCHOICE() {
-    //
+function colorSquareCHOICE(event) {
+    
 }
 
 
@@ -148,14 +147,20 @@ function changeButtonClick() {
 
     userInput = Number(userInput);
 
-    isInputValid(userInput);
-    removeGrid();
-    createGrid(userInput);
+    // Only execute the following when the input is valid:
+    if (isInputValid(userInput)) {
+        removeGrid();
+        createGrid(userInput);
 
-    const flexBasisPercent = 100 / userInput; // 100 divided by how many squares the user wants, such so the flex basis is scaled appropriately.
-    document.querySelectorAll(".square").forEach(square => {
-        square.style.flexBasis = `${flexBasisPercent}%`;
-    });
+        const gridSize = document.querySelector(".currentGridSize");
+        let gridSizeTextUpdate = gridSize.querySelector("span");
+        gridSizeTextUpdate.textContent = `${userInput}x${userInput}`;
+
+        const flexBasisPercent = 100 / userInput; // 100 divided by how many squares the user wants, such so the flex basis is scaled appropriately.
+        document.querySelectorAll(".square").forEach(square => {
+            square.style.flexBasis = `${flexBasisPercent}%`;
+        });
+    }
 }
 
 changeGridButton.addEventListener("click", changeButtonClick);
@@ -169,12 +174,14 @@ const toggleOpacityButton = document.querySelector("#toggleOpacityButton");
 let isToggleOn = false;
 function opacityButtonClick() {
     if (!isToggleOn) {
-        isToggleOn=true;
+        isToggleOn = true;
         toggleOpacityButton.textContent = "Toggle Opacity Stroke Tool: ON";
+        toggleOpacityButton.style.backgroundColor = "#006400";
     }
     else {
-        isToggleOn=false;
+        isToggleOn = false;
         toggleOpacityButton.textContent = "Toggle Opacity Stroke Tool: OFF";
+        toggleOpacityButton.style.backgroundColor = "#c00000";
     }
     console.log(isToggleOn);
     return isToggleOn;
