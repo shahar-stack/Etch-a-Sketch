@@ -52,14 +52,39 @@
  .buttonsContainer > * {
     font-size: 20px;
     color: white;
-    background-color: #c00000;
     padding: 5px 10px;
     border-radius: 20px;
     border: 2px solid black;
  }
 
- .buttonsContainer > *:hover {
-    background-color: #990000;
+ #changeGridButton {
+    background: rgb(228, 101, 143);
+ }
+
+ #changeGridButton:hover {
+    background: rgb(190, 100, 130);
+ }
+
+#toggleOpacityButton {
+    background: #c00000;
+}
+
+#toggleOpacityButton:hover {
+    background: #990000;
+}
+
+ #changeColorButton {
+    background: linear-gradient(90deg, rgba(255,0,0,1) 0%, rgba(255,154,0,1) 10%, rgba(208,222,33,1) 20%
+    , rgba(79,220,74,1) 30%, rgba(63,218,216,1) 40%, rgba(47,201,226,1) 50%, rgba(28,127,238,1) 60%
+    , rgba(95,21,242,1) 70%, rgba(186,12,248,1) 80%, rgba(251,7,217,1) 90%, rgba(255,0,0,1) 100%);
+
+    transition: background 0s;
+ }
+
+ #changeColorButton:hover {
+    background: linear-gradient(90deg, rgb(153, 1, 1) 0%, rgb(151, 91, 0) 10%, rgb(162, 172, 26) 20%
+    , rgb(57, 160, 53) 30%, rgb(44, 155, 153) 40%, rgb(35, 153, 172) 50%, rgb(22, 98, 185) 60%
+    , rgb(72, 16, 185) 70%, rgb(141, 10, 189) 80%, rgb(194, 5, 169) 90%, rgb(179, 0, 0) 100%);
  }
 
  .grid {
@@ -76,5 +101,5 @@
 
  .square {
      flex: 0 0 6.25%; /* default is 16x16, (100% / 16 = 6.25% of the container's space) */
-     border: 0.1px dashed black; /* <---- this border is here to troubleshoot if the grid squares are created as expected */
+     /* border: 0.1px dashed black; /* <---- this border is here to troubleshoot if the grid squares are created as expected */
  }
