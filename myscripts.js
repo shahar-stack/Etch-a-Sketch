@@ -7,9 +7,7 @@ for (let i = 0; i < 16; i++) {
         squareDiv = document.createElement("div");
         squareDiv.className = "square";
         grid.appendChild(squareDiv);
-        squareDiv.addEventListener("mouseenter", colorSquareDEFAULT);
-        squareDiv.addEventListener("mouseenter", addSquareOpacity);
-        // squareDiv.addEventListener("mouseenter", colorSquareCHOICE);
+        squareDiv.addEventListener("mouseenter", colorSquare);
     }
 }
 
@@ -27,17 +25,28 @@ function createGrid(userInput) {
             squareDiv = document.createElement("div");
             squareDiv.className = "square";
             grid.appendChild(squareDiv);
-            squareDiv.addEventListener("mouseenter", colorSquareDEFAULT);
-            squareDiv.addEventListener("mouseenter", addSquareOpacity);
-            // squareDiv.addEventListener("mouseenter", colorSquareCHOICE);
+            squareDiv.addEventListener("mouseenter", colorSquare);
         }
     }
+}
+
+let isColorChoiceMode = false; 
+
+function colorSquare(event) {
+    if (isColorChoiceMode) {
+        colorSquareCHOICE(event);
+    }
+    else {
+        colorSquareDEFAULT(event);
+    }
+
+    if (isToggleOn)
+        addSquareOpacity(event);
 }
 
 function colorSquareDEFAULT(event) {
     event.target.style.backgroundColor = getRandomRGB();
 }
-
 
 function getRandomRGB() {
     const R = Math.floor(Math.random() * 256);
@@ -48,14 +57,25 @@ function getRandomRGB() {
 }
 
 function addSquareOpacity(event) {
-    if (isToggleOn)
-        event.target.style.opacity = (parseFloat(event.target.style.opacity) || 0) + 0.1;
+    event.target.style.opacity = (parseFloat(event.target.style.opacity) || 0) + 0.1;
 }
 
 function colorSquareCHOICE(event) {
-    
+    event.target.style.backgroundColor = colorInput.value;
 }
 
+const changeColorButton = document.querySelector("#changeColorButton");
+let colorInput = document.querySelector("#colorInput");
+
+function colorButtonClick () {
+    colorInput.click();
+}
+
+changeColorButton.addEventListener("click", colorButtonClick);
+
+colorInput.addEventListener("input", (event) => {
+    isColorChoiceMode = true;
+});
 
 // Change Grid Size:
 
