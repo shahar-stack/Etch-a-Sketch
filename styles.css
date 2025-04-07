@@ -103,3 +103,7 @@
      flex: 0 0 6.25%; /* default is 16x16, (100% / 16 = 6.25% of the container's space) */
      /* border: 0.1px dashed black; /* <---- this border is here to troubleshoot if the grid squares are created as expected */
  }
+
+ .hidden {
+    display: none;
+ }
