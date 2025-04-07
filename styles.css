@@ -96,7 +96,8 @@
      border: 5px solid black;
      border-radius: 10px;
 
-     cursor: url(img/brush.png) 10 10, auto;
+     cursor: url(img/brush.png) 0 32, auto; /* x=0 y=32, relative to the top left corner of the brush image,
+                                             to align the brush with the cursor (since the brush is 32px x 32px) */
  }
 
  .square {
