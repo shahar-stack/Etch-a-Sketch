@@ -35,7 +35,7 @@ function createGrid(userInput) {
 }
 
 function colorSquareDEFAULT(event) {
-    event.target.style.backgroundColor = "black";
+    event.target.style.backgroundColor = getRandomRGB();
 }
 
 
